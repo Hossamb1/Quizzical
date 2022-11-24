@@ -88,7 +88,7 @@ function App() {
           return answer.isSelected;
         });
         if (selectedAnswer && selectedAnswer.isCorrect) {
-          setScore((score) => score + 0.5);
+          setScore((score) => score + 1);
           return { ...question, gotScore: true };
         }
         return { ...question, gotScore: false };
