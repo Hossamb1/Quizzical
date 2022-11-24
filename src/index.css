@@ -1,0 +1,265 @@
+body {
+  margin: 0;
+  font-family: "karla";
+}
+.App {
+  background-color: #f5f7fb;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loading {
+  align-self: center;
+  color: #293264;
+}
+.App .image2 {
+  transform: scale(1.5);
+  right: 40px;
+  top: 36px;
+}
+.App .image1 {
+  transform: scale(1.5);
+  left: 30px;
+  bottom: 30px;
+}
+.App img {
+  position: absolute;
+}
+.smaller-right {
+  transform: scale(1);
+  right: 0;
+  top: 0;
+}
+.smaller-left {
+  transform: scale(1);
+  left: 0;
+  bottom: 0;
+}
+/* Opening Screen */
+.opening {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #293264;
+  transform: translate(0);
+  transition: 2s ease-in-out;
+}
+.opening h1 {
+  margin: 0;
+}
+.opening p {
+  margin: 10px 0 40px;
+  font-family: "inter";
+}
+/* .move {
+  transform: translateX(100%);
+  transition: 2s ease-in-out;
+} */
+.disabled {
+  display: none;
+}
+.opening button,
+.btn button,
+.play button {
+  background-color: #4d5b9e;
+  border: 0;
+  border-radius: 15px;
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "inter";
+  color: white;
+}
+.opening button:active,
+.btn button:active,
+.play button:active {
+  background-color: #434e88;
+  transform: scale(0.96);
+}
+/* quiz */
+.quiz {
+  z-index: 20;
+  margin-top: 15px;
+  width: 80%;
+}
+.qanda {
+  width: 100%;
+  border-bottom: 1px solid #dbdef0;
+}
+.qanda h3 {
+  color: #293264;
+  font-weight: 700;
+  margin: 15px;
+  font-size: 18px;
+}
+.qanda p {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.qanda span {
+  overflow: hidden;
+  min-width: 70px;
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-left: 0;
+  padding: 4px 10px;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 14px;
+  border: 1px solid #4d5b9e;
+  color: #293264;
+  border-radius: 9px;
+}
+.qanda span:active {
+  transform: scale(0.96);
+}
+.selected {
+  border: none !important;
+  margin-inline: 1px;
+  background-color: #d6dbf5;
+}
+.correct {
+  border: none !important;
+  margin-inline: 1px;
+  background-color: #94d7a2;
+}
+.false {
+  border: none !important;
+  margin-inline: 1px;
+  background-color: #ffa3a3;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.btn button,
+.play button {
+  width: 170px;
+  height: 50px;
+}
+.play {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 70%;
+  z-index: 20;
+}
+/* loading */
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 70px;
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  border-radius: 50%;
+  background: #293264;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+.play {
+  margin-top: 10px;
+}
+@media (min-width: 991px) {
+  .qanda span {
+    padding: 3px 7px;
+    min-width: 100px;
+  }
+  .quiz {
+    width: 60%;
+  }
+
+  .qanda p {
+    padding-inline: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .quiz {
+    width: 100%;
+  }
+  .App {
+    height: 110vh;
+  }
+  .quiz {
+    align-self: center;
+  }
+  .qanda h3 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  .qanda p {
+    margin: 10px 0;
+  }
+  .qanda p span {
+    margin: 2px auto;
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+  .btn button,
+  .play button {
+    width: 150px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
