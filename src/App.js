@@ -80,21 +80,25 @@ function App() {
       />
     );
   });
+
   function checkAnswers() {
-    setScore(0);
-    setQuizData((prevQuestList) => {
-      const newQuestList = prevQuestList.map((question) => {
-        const selectedAnswer = question.answers.find((answer) => {
-          return answer.isSelected;
-        });
-        if (selectedAnswer && selectedAnswer.isCorrect) {
-          setScore((score) => score + 1);
-          return { ...question, gotScore: true };
-        }
-        return { ...question, gotScore: false };
-      });
-      return newQuestList;
+    // Initialize the score to 0
+    let newScore = 0;
+
+    // Calculate the new score and update the quiz data
+    const updatedQuizData = quizData.map((question) => {
+      const selectedAnswer = question.answers.find(
+        (answer) => answer.isSelected
+      );
+      if (selectedAnswer && selectedAnswer.isCorrect) {
+        newScore += 1;
+        return { ...question, gotScore: true };
+      }
+      return { ...question, gotScore: false };
     });
+
+    setScore(newScore);
+    setQuizData(updatedQuizData);
     setShowAnswers(true);
   }
 
@@ -108,6 +112,7 @@ function App() {
     setEnterQuiz((quiz) => !quiz);
     setReQuiz((quiz) => !quiz);
   }
+
   return (
     <div>
       {quizData.length < 1 ? (

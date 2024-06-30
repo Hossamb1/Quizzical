@@ -16,7 +16,7 @@ export default function Quiz(props) {
         return "";
       }
     }
-    console.log(props);
+
     return (
       <div className="qanda">
         <h3>{props.question}</h3>
